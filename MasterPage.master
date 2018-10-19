@@ -1,0 +1,104 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="style/bootstrap.min.css" rel="stylesheet" />
+    <link href="style/navbar-fixed-top.css" rel="stylesheet" />
+    <script src="script/jquery-3.1.1.min.js"></script>
+    <script src="script/bootstrap.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="style/w3.css" rel="stylesheet" />
+    <link href="style/w3-theme.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <body id="myPage" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+        
+        </body>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <!-- Navbar -->
+        <div class="w3-top">
+            <div class="w3-bar w3-theme-d2 w3-left-align">
+                <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+                <a href="Default.aspx" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>SmartTravel</a>
+                <a href="AboutPage.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About</a>
+                <a href="ContactPage.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+                <a href="AHRpage.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Things To Do</a>
+                <a href="CustomerBookingHistory.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Customer Booking History</a>
+                <a href="ShoppingCartPage.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Shopping Cart</a>
+                <asp:LinkButton ID="btnUser" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" CausesValidation="false" runat="server" Text="" OnClick="btnUser_Click"></asp:LinkButton>
+                <asp:LinkButton ID="btnLogin" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" OnClick="btnLogin_Click" Text="Login" CausesValidation="False" runat="server"></asp:LinkButton>
+                <asp:LinkButton ID="btnRegister" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" OnClick="btnRegister_Click" Text="Register" CausesValidation="False" runat="server"></asp:LinkButton>
+            </div>
+        </div>
+
+
+
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
+            <a href="AboutPage.aspx" class="w3-bar-item w3-button">About</a>
+            <a href="ContactPage.aspx" class="w3-bar-item w3-button">Contact</a>
+            <a href="AHRpage.aspx" class="w3-bar-item w3-button">Things To Do</a>
+            <a href="CustomerBookingHistory.aspx" class="w3-bar-item w3-button">Customer Booking History</a>
+            <a href="ShoppingCartPage.aspx" class="w3-bar-item w3-button">Shopping Cart</a>
+            <asp:LinkButton ID="LinkButton3" class="w3-bar-item w3-button" runat="server" Text="" OnClick="btnUser_Click"></asp:LinkButton>
+            <asp:LinkButton ID="LinkButton4" class="w3-bar-item w3-button" OnClick="btnLogin_Click" Text="Login" CausesValidation="False" runat="server"></asp:LinkButton>
+            <asp:LinkButton ID="LinkButton5" class="w3-bar-item w3-button" OnClick="btnRegister_Click" Text="Register" CausesValidation="False" runat="server"></asp:LinkButton>
+        </div>
+        
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <!-- Footer -->
+        <footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+            <br />
+            <br />
+            <p>
+                © Copyright SmartTravel. All Rights Reserved
+                <br />
+                <a href="AboutPage.aspx" target="_blank">Designed by Team SmartTravel</a>
+            </p>
+            <div style="position: relative; bottom: 100px; z-index: 1;" class="w3-tooltip w3-right">
+                <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>
+                <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
+                    <i class="fa fa-chevron-circle-up"></i></span></a>
+            </div>
+        </footer>
+    </form>
+    
+    <script>
+        // Script for side navigation
+        function w3_open() {
+            var x = document.getElementById("mySidebar");
+            x.style.width = "300px";
+            x.style.paddingTop = "10%";
+            x.style.display = "block";
+        }
+
+        // Close side navigation
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+
+        // Used to toggle the menu on smaller screens when clicking on the menu button
+        function openNav() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+</body>
+</html>
